@@ -64,8 +64,19 @@ janela. geometry("235x318")
 janela.resizable(False,False)
 frame_corpo = Frame(janela,width=235, height=318, bg="#fff" )
 frame_corpo.grid(row =0, column=0)
-botao = Button(janela, text="Cadastrar", command=Cadastro)
-botao.place(x=100, y=100)
+labelNome = Label(janela, 
+                    text="Sistema Login/Cadastro \n Pseudo BD ", 
+                    font=('Ivy 13 bold'),
+                    bg="#fff", 
+                    fg="#2c3ee6")
+labelNome.place(x=25, y=0)
+app_1_linha = Label(janela, text="",height=1, width=235, anchor=CENTER, font=('Ivy 1 bold'), bg="#3045ff", fg="#3045ff")
+app_1_linha.place(x=0, y=40)
+
+botaoC = Button(janela,width=10, text="Cadastrar", command=Cadastro)
+botaoC.place(x=75, y=100)
+botaoL = Button(janela,width=10, text="Login", command=Cadastro)
+botaoL.place(x=75, y=130)
 
 
       
