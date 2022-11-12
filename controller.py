@@ -1,4 +1,5 @@
 from pessoa import Pessoa
+import re
 
 usuario = Pessoa("teste","teste")
 
@@ -8,18 +9,45 @@ def cadastroPessoa(nome, senha):
     Nnome = usuario.get_Nome()
     Nsenha = usuario.get_Senha()
     criarPessoaonBD(Nnome,Nsenha)
-    
-    
+
+def retorneSucesso():
+    return "Sucesso"
+
 def loginPessoa(nome,senha):
     nome = nome
     senha = senha
     arquivo = open('bd.txt', 'r')
+    dadosArquivo = (f"Nome: {nome} Senha: {senha}")
+    print(dadosArquivo)
     for dados in arquivo:
-        if nome in dados :
+        if dadosArquivo in dados :
             return "Login valido"
         else:
             return "Login invalido"
     
+def existePessoa(nome,senha):
+    regex_palavras = re.compile(r'\b(\w+)\b')
+    Snome = nome
+    Ssenha = senha
+    with open('bd.txt', 'r', encoding = 'utf-8') as arquivo:
+       texto = arquivo.readlines()
+       print(texto)
+       for nomes in texto:
+           
+           if Snome in nomes:
+               return "Ja existe este nome"
+           
+           else:
+                cadastroPessoa (Snome,Ssenha)
+                break
+        
+                
+        
+        
+     
+            
+    
+
 
 def criarPessoaonBD(nome, senha):
     # Abra o arquivo (leitura)
@@ -38,6 +66,6 @@ def criarPessoaonBD(nome, senha):
     arquivo.close()
     
     
-def procurarPessoaonBd():
-    pass
+
+existePessoa("Jorge","12345")
 

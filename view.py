@@ -8,10 +8,9 @@ def Cadastro():
    def clique():
       senha = inputSenha.get()
       nome = inputNome.get()
-      print(nome,senha)
-      controller.cadastroPessoa(nome,senha)
-      labelConfirm = Message( janelaC, text = "Sucesso", width=100) 
-      labelConfirm.place(x=150, y=160)
+      controller1 =  controller.existePessoa(nome,senha)
+   
+         
    
    janelaC = Toplevel()
    janelaC.title("Cadastro")
@@ -57,7 +56,7 @@ def Cadastro():
  
 def Login():
    
-   def clique():
+   def clique1():
       senha = inputSenha.get()
       nome = inputNome.get()
       print(nome,senha)
@@ -66,7 +65,7 @@ def Login():
       labelConfirm.place(x=150, y=160)
    
    janelaL = Toplevel()
-   janelaL.title("Cadastro")
+   janelaL.title("Login")
    janelaL. geometry("235x318")
    janelaL.transient(janela)
    janelaL.focus_force()
@@ -102,7 +101,7 @@ def Login():
 
 
 
-   botao = Button(janelaL, text="Login", command=clique)
+   botao = Button(janelaL, text="Login", command=clique1)
    botao.place(x=150, y=100) 
    botao1 = Button(janelaL, text="Cancelar", command=janelaL.destroy)
    botao1.place(x=25, y=100) 
